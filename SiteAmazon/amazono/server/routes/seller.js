@@ -39,20 +39,21 @@ router.route('/products')
               }
           });
     })
-    .post([checkJWT, upload.single('product_picture')],(req, res, next) =>{
+    .post([checkJWT],(req, res, next) =>{ //, upload.single('product_picture')
         let product = new Product();
         product.owner = req.decoded.user._id;
-        product.category = req.body.categoryId;
-        product.title = req.body.title;
-        product.price = req.body.price;
-        product.description = req.body.description;
-        product.image = req.file.location;
+        product.category = req.body.sellProduct.categoryId;
+        product.title = req.body.sellProduct.title;
+        product.price = req.body.sellProduct.price;
+        product.description = req.body.sellProduct.description;
+       // product.image = req.file.location; sellProduct
+       console.log(req.body.sellProduct.description);
         product.save();
 
         res.json({
             success:true,
             message: 'Successfully Added the product'
-        });
+        }); 
     });
 
 module.exports = router;

@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-main">
-  <div class="container-fuild">
+  <div class="container-fuild" style="width: 90%;">
     <a routerLink="/" class="navbar-brand">
-        <img src="./assets/img/logo.png" alt="logo" id="logo">Amazon
+        <img src="./assets/img/logo1.png" alt="logo" id="logo" style="height: 40px; width:100px;">Amazon
     </a>
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left:  50px;" class="collapse navbar-collapse flex-column" id="navbarNav">
-      <div class="input-group w-75">
+    <div [ngbCollapse]="isCollapsed" style="float: right; margin-left:50px; width:70%;" class="collapse navbar-collapse flex-column" id="navbarNav">
+      <div class="input-group ">
           <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()">
-          <span id="searchBtn" class="bg-warning" (click)="searh()">
-            <i class="fa-search"></i>
+          <span id="searchBtn" class="bg-warning" (click)="searh()" style="width: 5%;">
+            <i class="fa fa-search" style="top:5px; left:10px; position : relative;"></i>
           </span>
       </div>
       <div class="w-100">
@@ -54,6 +54,6 @@
 <router-outlet></router-outlet>
 <footer class="bg-main text-white mt-5 p-5" id="main-footer">
   <div class="container">
-    <p class="lead text-center">Copyrith &copy; NTIECHE MFOUM ISSOFA.... Amazon 2018</p>
+    <p class="lead text-center">Copyrith &copy; NTIECHE MFOUM ISSOFA.... Amazon 2019</p>
   </div>
 </footer>

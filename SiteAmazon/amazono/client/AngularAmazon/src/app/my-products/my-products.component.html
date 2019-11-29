@@ -22,14 +22,15 @@
             <div class="row">
               <div class="col-4 col-md-2">
                 <a routerLink="/product/{{product.id}}">
-                  <img src="{{product.image}}" alt="image" class="img-fluid img-thumbail">
+                  <!--<img src="{product.image}}" alt="image" class="img-fluid img-thumbail">--> 
+                  <img src="../../assets/img/unknown.png" alt="image" class="img-fluid img-thumbail">
                 </a>
               </div>
               <div class="col-5 col-md-8">
                 <h5>
                   <a routerLink="/product/{{product.id}}">{{product.title}}</a>
                   <p class="mt-0">
-                    <small class="text-muted">{{product.category.name}}</small>
+                    <small class="text-muted">{{product.category}}</small>
                   </p>
                 </h5>
               </div>

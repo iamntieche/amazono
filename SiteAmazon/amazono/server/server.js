@@ -30,6 +30,6 @@ app.use('/api/accounts', userRoutes);
 app.use('/api/seller', sellerRoutes);
 
 app.listen(config.port,(err)=>{
-    console.log('magic happens on port trop fort'+config.port);
+    console.log('magic happens on port trop fort '+config.port);
 });
 

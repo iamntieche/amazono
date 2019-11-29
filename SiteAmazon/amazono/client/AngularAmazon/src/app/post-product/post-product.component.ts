@@ -15,8 +15,9 @@ export class PostProductComponent implements OnInit {
     title:'',
     price:0,
     categoryId:'',
-    description:'',
-    product_picture: null
+    description:null,
+    product_picture: null,
+    image:null
   };
 
   categories:any;
@@ -48,17 +49,17 @@ export class PostProductComponent implements OnInit {
         {
           if(product.categoryId)
           {
-            if(product.description)
-            {
+           // if(product.description)
+            //{
               if(product.product_picture)
               {
                 return true;
               }else{
                 this.data.error('Please select product image.');
               }
-            }else{
+            //}else{
               this.data.error('Please enter description');
-            }
+           // }
           }else{
             this.data.error('Please select category.');
           }
@@ -78,10 +79,11 @@ export class PostProductComponent implements OnInit {
     this.btnDisabled = true;
     try{
       if(this.validate(this.product)){
-        const form = new FormData();
+        
+       /* const form = new FormData();
          for (const key in this.product){
            if(this.product.hasOwnProperty(key)){
-             if(key=== 'product_picture'){
+             if(key === 'product_picture'){
                form.append(
                  'product_picture',
                  this.product.product_picture,
@@ -89,13 +91,12 @@ export class PostProductComponent implements OnInit {
                );
              }else{
                form.append(key, this.product[key]);
+               console.log(" element "+this.product[key]);
              }
            }
-         }
-         const data = await this.rest.post(
-           'http://localhost:3030/api/seller/products',
-           form
-         );
+         }*/
+         console.log("description "+this.product.description);
+         const data = await this.rest.post('http://localhost:3030/api/seller/products',{sellProduct:this.product});
          data['success']
           ? this.router.navigate(['/profile/myproducts'])
             .then(()=> this.data.success(data['message']))

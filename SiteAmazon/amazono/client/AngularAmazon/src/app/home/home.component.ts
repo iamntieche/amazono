@@ -7,7 +7,7 @@ import {RestApiService} from '../rest-api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-product : any;
+products : any;
   constructor(
     private data:DataService,
     private rest:RestApiService
@@ -18,8 +18,9 @@ product : any;
 const data = await this.rest.get(
   'http://localhost:3030/api/products'
 );
+ console.log(" liste des produits "+data['products']);
 data['success']
-  ? (this.product = data['products'])
+  ? (this.products = data['products']) 
   : this.data.error('Could not fecth products.');
    }catch(error){
      this.data.error(error['message']);
