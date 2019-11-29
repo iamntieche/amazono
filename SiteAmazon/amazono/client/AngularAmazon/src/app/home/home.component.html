@@ -48,7 +48,7 @@
 </div>-->
 
  
- <!-- <div class="container p-5">
+   <div class="container p-5">
   <app-message></app-message>
   <p class="lead">
     <b>Recommended Deals:</b>
@@ -59,17 +59,20 @@
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
+    <div *ngFor="let product of products" class="product">
      <div class="col-md-3 mb-5">
-       <a routerLink="/product/{products._id}}">
-          <div class="card bg-light">
+        <!--<a (click)="goToProduct(product._id)"> --> 
+          <a routerLink="/product/{{product._id}}">
+          <div class="card bg-light" style="width: 150px; ">
             <img src="../../assets/img/unknown.png" alt="product" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">{products.title}}</h5>
-              <p class="card-text">{products.price | currency}}</p>
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text">{{product.price | currency}}</p>
             </div>
           </div>
       </a>
      </div>
+    </div>
   </div>
-</div>-->
+</div>
 </section>

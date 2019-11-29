@@ -26,6 +26,7 @@ export class MyProductsComponent implements OnInit {
       data['success']
         ? (this.products = data['products'])
         : this.data.error(data['message']);
+        
     }catch(error){
       this.data.error(error['message']);
     }

@@ -13,12 +13,14 @@ router.get('/products',(req,res,next)=>{
         function(callback){
             Product.count({},(err,count) =>{
                 var totalProducts = count;
+                console.log("total produit "+totalProducts);
+                console.log("total count "+count);
                 callback(err,totalProducts);
             });
         },
         function(callback){
             Product.find({})
-                .skip(perPage* page)
+                .skip(perPage * page)
                 .limit(perPage)
                 .populate('category')
                 .populate('owner')
@@ -29,13 +31,13 @@ router.get('/products',(req,res,next)=>{
         }
     ],
         function(err,results){
-            var totaProducts = results[0];
+            var totalProducts = results[0];
             var products = results[1];
             res.json({
                 success:true,
                 message:'category',
                 products:products,
-                totalProducts:totalProducts,
+                totalProducts: totalProducts,
                 pages:Math.ceil(totalProducts / perPage)
             });
         });
@@ -90,7 +92,7 @@ router.get('/categories/:id',(req,res,next)=>{
         }
     ],
         function(err,results){
-            var totaProducts = results[0];
+            var totalProducts = results[0];
             var products = results[1];
             var category = results[2];
             res.json({
@@ -139,15 +141,15 @@ router.post('/review', ckeckJWT ,(req,res,next)=>{
             let review = new Review();
 
             review.owner = req.decoded.user._id;
-
+         
             if(req.body.title) review.title= req.body.title;
             if(req.body.description) review.description = req.body.description;
 
             review.rating = req.body.rating;
-
             product.reviews.push(review._id);
-            product.save();
+           product.save();
             review.save();
+            
             res.json({
                 success: true,
                 message : "Successfully added the review"

@@ -7,7 +7,7 @@ const config = require('./config');
 const app=express();
 
 //fonction permettant de communiquer avec mongoDB
-mongoose.connect(config.database, {useMongoClient:true} ,(err)=>{//useMongoClient permet de supprimer le sms de depreciation asur la console
+mongoose.connect(config.database, {useMongoClient:true} ,(err)=>{//useMongoClient permet de supprimer le sms de depreciation sur la console
     if(err){
         console.log(err);
     }

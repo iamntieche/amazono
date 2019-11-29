@@ -15,7 +15,7 @@ export class PostProductComponent implements OnInit {
     title:'',
     price:0,
     categoryId:'',
-    description:null,
+    description: '',
     product_picture: null,
     image:null
   };
@@ -49,17 +49,17 @@ export class PostProductComponent implements OnInit {
         {
           if(product.categoryId)
           {
-           // if(product.description)
-            //{
+             if(product.description)
+            {
               if(product.product_picture)
               {
                 return true;
               }else{
                 this.data.error('Please select product image.');
               }
-            //}else{
+             }else{
               this.data.error('Please enter description');
-           // }
+           }
           }else{
             this.data.error('Please select category.');
           }

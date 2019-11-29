@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^4.13.7",
+    "mongoose-algolia": "^1.9.0",
     "mongoose-deep-populate": "^3.1.1",
     "morgan": "^1.9.0",
     "multer": "^1.4.1",

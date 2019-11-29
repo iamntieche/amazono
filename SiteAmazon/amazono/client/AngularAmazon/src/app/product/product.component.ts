@@ -27,11 +27,13 @@ btnDisabled = false;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(res =>{
-      this.rest.get(`http://localhost:3030/api/products/${res['id']}`)
+      this.rest.get(`http://localhost:3030/api/product/${res['id']}`)
           .then(data => {
+            
             data['success']
             ? (this.product = data['product'])
             : this.router.navigate(['/']);
+            console.log("data "+this.product.reviews )
           }).catch(error => this.data.error(error['message']));
     })
   }
@@ -48,6 +50,11 @@ btnDisabled = false;
           rating:this.myReview.rating
         }
       );
+      console.log("ID "+this.product._id);
+      console.log("Title "+this.myReview.title);
+      console.log("description "+this.myReview.description);
+      console.log("rating "+this.myReview.rating);
+      
       data['success']
         ? this.data.success(data['message'])
         : this.data.error(data['message']);
