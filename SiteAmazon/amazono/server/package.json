@@ -16,7 +16,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^4.13.7",
     "mongoose-algolia": "^1.9.0",
     "mongoose-deep-populate": "^3.1.1",
